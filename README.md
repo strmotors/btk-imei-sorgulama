@@ -25,7 +25,7 @@ python app.py
 - Script, Türkiye Cumhuriyeti resmi web sitesinde IMEI sorgulama işlemini gerçekleştirecek ve sonuçları çıktı olarak verecektir.
 
 ## Lisans
-Bu script özgürce kullanılabilir. Daha fazla detay için Lisans Dosyası'na göz atabilirsiniz.
+Bu script özgürce kullanılabilir.
 
 ## Uyarı
 Bu scripti kullanırken, Türkiye Cumhuriyeti resmi web sitesinin kullanım koşullarına uyunuz. Scriptin kullanımından doğacak her türlü sorumluluk kullanıcıya aittir.
