@@ -21,16 +21,19 @@ driver = webdriver.Chrome(options=chrome_options)
 
 driver.get("https://www.turkiye.gov.tr/imei-sorgulama")
 
-
-driver.find_element(By.ID, "txtImei").click()
-driver.find_element(By.ID, "txtImei").send_keys(imeiNumarasi)
-driver.find_element(By.ID, "txtImei").send_keys(Keys.ENTER)
-imeiNo = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(2)").text
-durum = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(4)").text
-kaynak = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(6)").text
-sorguTarihi = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(8)").text
-markaModel = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(10)").text
-
+try:
+    driver.find_element(By.ID, "txtImei").click()
+    driver.find_element(By.ID, "txtImei").send_keys(imeiNumarasi)
+    driver.find_element(By.ID, "txtImei").send_keys(Keys.ENTER)
+    imeiNo = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(2)").text
+    durum = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(4)").text
+    kaynak = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(6)").text
+    sorguTarihi = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(8)").text
+    markaModel = driver.find_element(By.CSS_SELECTOR, "dd:nth-child(10)").text
+except:
+    print("Kayıt Dışı İmei veya Script Hatası.")
+    print("Manuel Sorgu: https://www.turkiye.gov.tr/imei-sorgulama")
+    
 markaModelSplit = markaModel.split(",")
 
 for x in markaModelSplit:
@@ -39,9 +42,6 @@ for x in markaModelSplit:
     marka = markaModelSplit[2].split(":")[1]
     model = markaModelSplit[3].split(":")[1]
     
-
-#datas = {"Marka":marka,"Model":model,"IMEI":imeiNo,"Durum":durum,"Kaynak":kaynak,"SorguTarihi":sorguTarihi}
-
 print("Marka: "+marka)
 print("Model: "+model)
 print("IMEI: "+imeiNo)
